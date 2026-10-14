@@ -28,6 +28,7 @@ formulario.addEventListener("submit", function (event) {
   const mensagem = verificarIdade(idade);
 
   resultado.textContent = `Olá ${nome}! ${mensagem}`;
+  resultado.classList.remove("d-none");
 });
 
 function verificarIdade(idade) {
