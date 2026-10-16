@@ -35,7 +35,6 @@ function verificarIdade(idade) {
   if (idade >= 18) {
     resultado.classList.add("alert-success");
 
-    // Concatenação de texto
     resultado.textContent = "Olá, " + nome + "! Você é maior de idade.";
 
     return "Vocé é maior de idade!";
