@@ -1,45 +1,19 @@
-const inputNome = document.querySelector("#nome");
-const inputIdade = document.querySelector("#idade");
+const inputCategoria = document.querySelector("#categoria");
+const inputDescricao = document.querySelector("#descricao");
+const inputValor = document.querySelector("#valor");
 const botao = document.querySelector("#botao");
-const resultado = document.querySelector("#resultado");
-const formulario = document.querySelector("#formulario");
+const formulario = document.querySelector("form");
+
+function adicionarDespesa() {
+  const descricao = inputDescricao.value.trim();
+  const valor = Number(inputValor.value);
+  const categoria = inputCategoria.value;
+}
 
 formulario.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const nome = inputNome.value.trim();
-  const idade = Number(inputIdade.value).trim();
-
-  resultado.classList.remove(
-    "d-none",
-    "alert-info",
-    "alert-danger",
-    "alert-success",
-    "alert-warning",
-  );
-
-  if (nome === "" || inputIdade === "") {
-    resultado.classList.add("alert-warning");
-    resultado.textContent =
-      "Os campos devem ser preenchidos. Por favor os preencha.";
-    return;
-  }
-
-  const mensagem = verificarIdade(idade);
-
-  resultado.textContent = `Olá ${nome}! ${mensagem}`;
-  resultado.classList.remove("d-none");
+  const descricao = inputDescricao.value.trim();
+  const valor = Number(inputValor.value);
+  const categoria = inputCategoria.value;
 });
-
-function verificarIdade(idade) {
-  if (idade >= 18) {
-    resultado.classList.add("alert-success");
-
-    resultado.textContent = "Olá, " + nome + "! Você é maior de idade.";
-
-    return "Vocé é maior de idade!";
-  }
-  resultado.textContent = `Olá, ${nome}! Você é menor de idade.`;
-  resultado.classList.add("alert-danger");
-  return "Vocé é menor de idade!";
-}
