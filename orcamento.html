@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introdução JavaScript</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"> BudgetFix </a>
+
+        <div class="navbar-nav">
+          <a class="nav-link" href="index.html">Tabela de despesas</a>
+          <a class="nav-link" href="orcamento.html">Cálculo de orçamento</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-5">
+      <h1>Cálculo de Orçamento</h1>
+      <p>Esta é a página para calcular o orçamento.</p>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Despesa</th>
+            <th scope="col">Rendas e isenções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Adicionar com JavaScript -->
+        </tbody>
+      </table>
+
+      <section class="mt-4" aria-labelledby="resumoOrcamento">
+        <h2 id="resumoOrcamento" class="h4">Resultado do orçamento</h2>
+        <p class="text-muted">
+          Saldo final = rendas e isenções (faturamento) - despesas
+        </p>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h6 text-muted">Total de faturamento</h3>
+                <output id="totalRendas" class="fs-4 fw-bold">R$ 0,00</output>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h6 text-muted">Total de despesas</h3>
+                <output id="totalDespesas" class="fs-4 fw-bold">R$ 0,00</output>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100 border-primary">
+              <div class="card-body">
+                <h3 class="h6 text-muted">Quanto sobrará</h3>
+                <output
+                  id="saldoFinal"
+                  class="fs-4 fw-bold text-primary"
+                  aria-live="polite"
+                  >R$ 0,00</output
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card mt-4">
+        <div class="card-body">
+          <h2 class="h5">Cadastrar nova renda</h2>
+
+          <form id="formCadastro" novalidate>
+            <div class="mb-3">
+              <label for="novaRenda" class="form-label"> Nome da renda </label>
+              <input id="novaRenda" class="form-control" type="text" />
+            </div>
+
+            <div class="mb-3">
+              <label for="faturaRenda" class="form-label">
+                Quanto a renda fatura?
+              </label>
+              <input
+                id="faturaRenda"
+                class="form-control"
+                type="number"
+                min="0.01"
+                step="0.01"
+              />
+            </div>
+
+            <button class="btn btn-primary" id="botaoCadastrar" type="submit">
+              Adicionar renda
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/orcamento.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
