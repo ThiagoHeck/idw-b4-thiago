@@ -3,6 +3,8 @@ const inputDescricao = document.querySelector("#descricao");
 const inputValor = document.querySelector("#valor");
 const formulario = document.querySelector("form");
 const tbody = document.querySelector("tbody");
+const ReiniciarDespesas = document.querySelector("#ReiniciarDespesas");
+const despesasElementoSoma = document.querySelector("#somaDespesas");
 const CHAVE_DESPESAS = "despesas";
 const formatadorMoeda = new Intl.NumberFormat("pt-BR", {
   style: "currency",
@@ -39,11 +41,25 @@ function adicionarDespesa() {
 
   formulario.reset();
   renderizarDespesas();
+  calcularSomaDespesas();
 }
 
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
   adicionarDespesa();
 });
+
+ReiniciarDespesas.addEventListener("click", () => {
+  if (!confirm("Apagar todas as despesas?")) return;
+  localStorage.removeItem(CHAVE_DESPESAS);
+  renderizarDespesas();
+  calcularSomaDespesas();
+});
+
+function calcularSomaDespesas() {
+  const despesas = obterDespesas();
+  const soma = despesas.reduce((total, despesa) => total + despesa.valor, 0);
+  despesasElementoSoma.textContent = formatadorMoeda.format(soma);
+}
 
 renderizarDespesas();

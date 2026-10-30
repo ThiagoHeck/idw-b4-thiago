@@ -26,7 +26,15 @@
     </nav>
 
     <main class="container mt-5">
-      <h1 id="titulo">Tabela de orçamento</h1>
+      <h1 id="titulo">Página de despesas</h1>
+      <p>Gerencie suas despesas de forma simples e eficiente.</p>
+      <button
+        id="ReiniciarDespesas"
+        class="btn btn-outline-danger mb-3"
+        type="button"
+      >
+        Reiniciar Despesas
+      </button>
 
       <table class="table table-striped text-center">
         <thead>
@@ -79,6 +87,13 @@
           Adicionar
         </button>
       </form>
+
+      <br />
+
+      <div class="card mt-4 text-center">
+        <h1>Soma das despesas</h1>
+        <p id="somaDespesas">R$ 0,00</p>
+      </div>
     </main>
 
     <script src="js/despesas.js"></script>
